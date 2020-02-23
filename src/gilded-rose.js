@@ -9,8 +9,7 @@ export class GildedRose {
   }
 
   update_quality() {
-    for (let i = 0; i < this.items.length; i++) {
-      const item = this.items[i]
+    for (const item of this.items) {
       if (item.name !== this.AGEDBRIE && item.name !== this.BACKSTAGE) {
         if (item.quality > 0) {
           if (item.name !== this.SULFURAS) {

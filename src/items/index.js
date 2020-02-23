@@ -9,33 +9,13 @@ export class Item {
     this.quality = quality
   }
 
-  update() {
-    if (!this.isAgedBrie() && !this.isBackstagePass()) {
-      if (this.quality > 0) {
-        if (!this.isSulfuras()) {
-          this.quality = this.quality - 1
-        }
-      }
-    } else {
-      if (this.quality < 50) {
-        this.quality = this.quality + 1
-        if (this.isBackstagePass()) {
-          if (this.sellIn < 11) {
-            if (this.quality < 50) {
-              this.quality = this.quality + 1
-            }
-          }
-          if (this.sellIn < 6) {
-            if (this.quality < 50) {
-              this.quality = this.quality + 1
-            }
-          }
-        }
-      }
-    }
+  updateCommonSellInGoods() {
     if (!this.isSulfuras()) {
       this.sellIn = this.sellIn - 1
     }
+  }
+
+  updateSellInZero() {
     if (this.sellIn < 0) {
       if (!this.isAgedBrie()) {
         if (!this.isBackstagePass()) {
@@ -53,6 +33,42 @@ export class Item {
         }
       }
     }
+  }
+
+  updateQualityNotAgeBrieAndBackstage() {
+    if (this.quality > 0) {
+      if (!this.isSulfuras()) {
+        this.quality = this.quality - 1
+      }
+    }
+  }
+
+  updateQuality() {
+    if (this.quality < 50) {
+      this.quality = this.quality + 1
+      if (this.isBackstagePass()) {
+        if (this.sellIn < 11) {
+          if (this.quality < 50) {
+            this.quality = this.quality + 1
+          }
+        }
+        if (this.sellIn < 6) {
+          if (this.quality < 50) {
+            this.quality = this.quality + 1
+          }
+        }
+      }
+    }
+  }
+
+  update() {
+    if (!this.isAgedBrie() && !this.isBackstagePass()) {
+      this.updateQualityNotAgeBrieAndBackstage()
+    } else {
+      this.updateQuality()
+    }
+    this.updateCommonSellInGoods()
+    this.updateSellInZero()
   }
 
   // eslint-disable-next-line class-methods-use-this

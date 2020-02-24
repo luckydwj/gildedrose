@@ -9,4 +9,18 @@ export class BackstagePass extends Item {
   isBackstagePass() {
     return true
   }
+
+  updateQuality() {
+    // super.updateQuality()
+    if (this.sellIn < 11) {
+      if (this.quality < 50) {
+        this.quality = this.quality + 1
+      }
+    }
+    if (this.sellIn < 6) {
+      if (this.quality < 50) {
+        this.quality = this.quality + 1
+      }
+    }
+  }
 }

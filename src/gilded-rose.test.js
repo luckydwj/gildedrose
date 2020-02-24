@@ -84,7 +84,7 @@ describe('GildedRoseTest', () => {
   })
 
   it('Sulfuras', () => {
-    const items = [new Item('Sulfuras, Hand of Ragnaros', 1, 5)]
+    const items = [ItemFactory.createSulfuras(1, 5)]
     const app = new GildedRose(items)
     app.update_quality()
     expect(app.items[0].name).toEqual('Sulfuras, Hand of Ragnaros')
@@ -93,7 +93,7 @@ describe('GildedRoseTest', () => {
   })
 
   it('Sulfuras-1', () => {
-    const items = [new Item('Sulfuras, Hand of Ragnaros', -1, 5)]
+    const items = [ItemFactory.createSulfuras(-1, 5)]
     const app = new GildedRose(items)
     app.update_quality()
     expect(app.items[0].name).toEqual('Sulfuras, Hand of Ragnaros')
@@ -102,7 +102,7 @@ describe('GildedRoseTest', () => {
   })
 
   it('Backstage pass', () => {
-    const items = [new Item('Backstage passes to a TAFKAL80ETC concert', 5, 5)]
+    const items = [ItemFactory.createisBackstage(5, 5)]
     const app = new GildedRose(items)
     app.update_quality()
     expect(app.items[0].name).toEqual(
@@ -112,7 +112,7 @@ describe('GildedRoseTest', () => {
     expect(app.items[0].sell_in).toEqual(4)
   })
   it('Backstage pass-1', () => {
-    const items = [new Item('Backstage passes to a TAFKAL80ETC concert', 10, 5)]
+    const items = [ItemFactory.createisBackstage(10, 5)]
     const app = new GildedRose(items)
     app.update_quality()
     expect(app.items[0].name).toEqual(
@@ -122,7 +122,7 @@ describe('GildedRoseTest', () => {
     expect(app.items[0].sell_in).toEqual(9)
   })
   it('Backstage pass-2', () => {
-    const items = [new Item('Backstage passes to a TAFKAL80ETC concert', 0, 5)]
+    const items = [ItemFactory.createisBackstage(0, 5)]
     const app = new GildedRose(items)
     app.update_quality()
     expect(app.items[0].name).toEqual(
@@ -133,7 +133,7 @@ describe('GildedRoseTest', () => {
   })
 
   it('Backstage pass-3', () => {
-    const items = [new Item('Backstage passes to a TAFKAL80ETC concert', -1, 5)]
+    const items = [ItemFactory.createisBackstage(-1, 5)]
     const app = new GildedRose(items)
     app.update_quality()
     expect(app.items[0].name).toEqual(
@@ -144,9 +144,7 @@ describe('GildedRoseTest', () => {
   })
 
   it('Backstage pass-4', () => {
-    const items = [
-      new Item('Backstage passes to a TAFKAL80ETC concert', -1, 52),
-    ]
+    const items = [ItemFactory.createisBackstage(-1, 52)]
     const app = new GildedRose(items)
     app.update_quality()
     expect(app.items[0].name).toEqual(

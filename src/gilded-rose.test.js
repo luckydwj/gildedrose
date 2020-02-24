@@ -1,6 +1,5 @@
 import { GildedRose } from './gilded-rose'
 import { Item } from './item'
-import { AgedBrie } from './AgedBrie'
 
 describe('GildedRoseTest', () => {
   it('foo', () => {
@@ -48,7 +47,7 @@ describe('GildedRoseTest', () => {
   })
 
   it('AgedBrie', () => {
-    const items = [new AgedBrie(1, 5)]
+    const items = [new Item('Aged Brie', 1, 5)]
     const app = new GildedRose(items)
     app.update_quality()
     expect(app.items[0].name).toEqual('Aged Brie')
@@ -57,7 +56,7 @@ describe('GildedRoseTest', () => {
   })
 
   it('AgedBrie-1', () => {
-    const items = [new AgedBrie(-1, 5)]
+    const items = [new Item('Aged Brie', -1, 5)]
     const app = new GildedRose(items)
     app.update_quality()
     expect(app.items[0].name).toEqual('Aged Brie')
@@ -66,7 +65,7 @@ describe('GildedRoseTest', () => {
   })
 
   it('AgedBrie-2', () => {
-    const items = [new AgedBrie(-1, 51)]
+    const items = [new Item('Aged Brie', -1, 51)]
     const app = new GildedRose(items)
     app.update_quality()
     expect(app.items[0].name).toEqual('Aged Brie')

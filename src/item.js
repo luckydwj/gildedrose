@@ -14,15 +14,15 @@ export class Item {
   }
 
   isAgedBrie() {
-    return this.name === 'Aged Brie'
+    return false
   }
 
   isBackstage() {
-    return this.name === 'Backstage passes to a TAFKAL80ETC concert'
+    return false
   }
 
   isSulfuras() {
-    return this.name === 'Sulfuras, Hand of Ragnaros'
+    return false
   }
 
   updateItem() {

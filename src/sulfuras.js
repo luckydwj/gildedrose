@@ -5,7 +5,10 @@ import { Item } from './item'
 
 export class Sulfuras extends Item {
   // eslint-disable-next-line no-useless-constructor
-  constructor(name, sell_in, quality) {
-    super(name, sell_in, quality)
+  constructor(sell_in, quality) {
+    super('Sulfuras, Hand of Ragnaros', sell_in, quality)
+  }
+  isSulfuras() {
+    return true
   }
 }

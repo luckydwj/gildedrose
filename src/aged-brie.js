@@ -5,7 +5,11 @@ import { Item } from './item'
 
 export class AgedBrie extends Item {
   // eslint-disable-next-line no-useless-constructor
-  constructor(name, sell_in, quality) {
-    super(name, sell_in, quality)
+  constructor(sell_in, quality) {
+    super('Aged Brie', sell_in, quality)
+  }
+
+  isAgedBrie() {
+    return true
   }
 }

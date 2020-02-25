@@ -24,4 +24,9 @@ export class BackStage extends Item {
       }
     }
   }
+  updateQulityAfterExpired() {
+    if (this.isExpired()) {
+      this.quality = 0
+    }
+  }
 }

@@ -13,20 +13,14 @@ export class Item {
     return `${this.name}, ${this.sell_in}, ${this.quality}`
   }
 
-  isAgedBrie() {
-    return false
-  }
-
-  isBackstage() {
-    return false
-  }
-
-  isSulfuras() {
-    return false
-  }
-
   isExpired() {
     return this.sell_in < 0
+  }
+
+  updateItem() {
+    this.updateQuality()
+    this.updateSellIn()
+    this.updateQulityAfterExpired()
   }
 
   updateQuality() {
@@ -36,34 +30,14 @@ export class Item {
   }
 
   updateSellIn() {
-    if (!this.isSulfuras()) {
-      this.sell_in = this.sell_in - 1
-    }
+    this.sell_in = this.sell_in - 1
   }
 
   updateQulityAfterExpired() {
     if (this.isExpired()) {
-      if (!this.isAgedBrie()) {
-        if (!this.isBackstage()) {
-          if (this.quality > 0) {
-            if (!this.isSulfuras()) {
-              this.quality = this.quality - 1
-            }
-          }
-        } else {
-          this.quality = this.quality - this.quality
-        }
-      } else {
-        if (this.quality < 50) {
-          this.quality = this.quality + 1
-        }
+      if (this.quality > 0) {
+        this.quality = this.quality - 1
       }
     }
-  }
-
-  updateItem() {
-    this.updateQuality()
-    this.updateSellIn()
-    this.updateQulityAfterExpired()
   }
 }

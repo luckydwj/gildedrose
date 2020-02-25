@@ -18,4 +18,12 @@ export class AgedBrie extends Item {
       this.quality = this.quality + 1
     }
   }
+
+  updateQulityAfterExpired() {
+    if (this.isExpired()) {
+      if (this.quality < 50) {
+        this.quality = this.quality + 1
+      }
+    }
+  }
 }

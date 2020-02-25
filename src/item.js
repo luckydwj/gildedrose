@@ -25,34 +25,24 @@ export class Item {
     return false
   }
 
-  updateItem() {
-    if (!this.isAgedBrie() && !this.isBackstage()) {
-      if (this.quality > 0) {
-        if (!this.isSulfuras()) {
-          this.quality = this.quality - 1
-        }
-      }
-    } else {
-      if (this.quality < 50) {
-        this.quality = this.quality + 1
-        if (this.isBackstage()) {
-          if (this.sell_in < 11) {
-            if (this.quality < 50) {
-              this.quality = this.quality + 1
-            }
-          }
-          if (this.sell_in < 6) {
-            if (this.quality < 50) {
-              this.quality = this.quality + 1
-            }
-          }
-        }
-      }
+  isExpired() {
+    return this.sell_in < 0
+  }
+
+  updateQuality() {
+    if (this.quality > 0) {
+      this.quality = this.quality - 1
     }
+  }
+
+  updateSellIn() {
     if (!this.isSulfuras()) {
       this.sell_in = this.sell_in - 1
     }
-    if (this.sell_in < 0) {
+  }
+
+  updateQulityAfterExpired() {
+    if (this.isExpired()) {
       if (!this.isAgedBrie()) {
         if (!this.isBackstage()) {
           if (this.quality > 0) {
@@ -69,5 +59,11 @@ export class Item {
         }
       }
     }
+  }
+
+  updateItem() {
+    this.updateQuality()
+    this.updateSellIn()
+    this.updateQulityAfterExpired()
   }
 }

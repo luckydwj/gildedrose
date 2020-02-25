@@ -12,4 +12,10 @@ export class AgedBrie extends Item {
   isAgedBrie() {
     return true
   }
+
+  updateQuality() {
+    if (this.quality < 50) {
+      this.quality = this.quality + 1
+    }
+  }
 }

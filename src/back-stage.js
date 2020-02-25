@@ -9,10 +9,6 @@ export class BackStage extends Item {
     super('Backstage passes to a TAFKAL80ETC concert', sell_in, quality)
   }
 
-  isBackstage() {
-    return true
-  }
-
   updateQuality() {
     if (this.quality > 50) return
 

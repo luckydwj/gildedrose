@@ -9,10 +9,6 @@ export class AgedBrie extends Item {
     super('Aged Brie', sell_in, quality)
   }
 
-  isAgedBrie() {
-    return true
-  }
-
   updateQuality() {
     if (this.quality < 50) {
       this.quality = this.quality + 1

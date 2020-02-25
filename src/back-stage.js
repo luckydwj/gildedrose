@@ -14,14 +14,14 @@ export class BackStage extends Item {
   }
 
   updateQuality() {
-    if (this.quality < 50) {
+    if (this.quality > 50) return
+
+    this.quality = this.quality + 1
+    if (this.sell_in < 11) {
       this.quality = this.quality + 1
-      if (this.sell_in < 11) {
-        this.quality = this.quality + 1
-      }
-      if (this.sell_in < 6) {
-        this.quality = this.quality + 1
-      }
+    }
+    if (this.sell_in < 6) {
+      this.quality = this.quality + 1
     }
   }
   updateQulityAfterExpired() {
